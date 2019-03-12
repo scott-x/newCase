@@ -31,7 +31,7 @@ module.exports={
 		    // Use user feedback for... whatever!!
 		    if (check_job(answers.job_number)){
 		    	// console.log(answers.job_number)
-		    	fs.copy(path.resolve(__dirname,'../temp/印刷/P15xxxx_xxx'),'./'+getJob(answers.job_number),function(err){
+		    	fs.copy(path.resolve(__dirname,'../.temp/印刷/P15xxxx_xxx'),'./'+getJob(answers.job_number),function(err){
 		    		if (err) return console.log(err)
 		    		console.log('New Job '+answers.job_number.toUpperCase()+' was created successfully!')
 		    	})
