@@ -1,5 +1,5 @@
 {
-  "name": "newCase",
+  "name": "sc-benchmark-new-job",
   "version": "1.0.1",
   "description": "A cli for benchmark",
   "main": "index.js",
@@ -19,3 +19,4 @@
     "inquirer": "^6.2.2"
   }
 }
+
