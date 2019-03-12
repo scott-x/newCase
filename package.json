@@ -1,6 +1,6 @@
 {
   "name": "sc-benchmark-new-job",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A cli for benchmark",
   "main": "index.js",
   "bin": {
@@ -19,4 +19,3 @@
     "inquirer": "^6.2.2"
   }
 }
-
