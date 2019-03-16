@@ -3,7 +3,7 @@ generator new case for benchmark
 
 ### useage
 ```
-newcase g 
+newcase
 
 ```
 ### some unfulfilled function
