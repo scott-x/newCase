@@ -2,7 +2,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
-
+const {getTime,mkdir,rename}= require('./utils');
 
 function check_job(job){
    var patt=/[P][12][890][0-9]{2}[0-9A-Z][0-9]/g;
