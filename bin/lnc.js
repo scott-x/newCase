@@ -5,17 +5,10 @@ var chalk = require('chalk');
 const {getTime,mkdir,rename}= require('./utils');
 
 function check_job(job){
-   var patt=/[P][12][890][0-9]{2}[0-9A-Z][0-9]/g;
+   var patt=/[B][12][890][0-9]{2}[0-9A-Z][0-9]_[A-Z]{3}/g;
    return patt.test(job.toUpperCase())
 }
 
-function getJob(job){
-   if (/.*LNC/.test(job.toUpperCase())) {
-   	  return job.toUpperCase()
-   }else{
-   	return job.toUpperCase()+'_LNC'
-   }
-}
 module.exports={
 	run: function(){
 		inquirer
@@ -31,12 +24,12 @@ module.exports={
 		    // Use user feedback for... whatever!!
 		    if (check_job(answers.job_number)){
 		    	// console.log(answers.job_number)
-		    	fs.copy(path.resolve(__dirname,'../.temp/印刷/P15xxxx_xxx'),'./'+getJob(answers.job_number),function(err){
+		    	fs.copy(path.resolve(__dirname,'../.temp/LNC'),'./'+answers.job_number.toUpperCase()+'\ 做稿',function(err){
 		    		if (err) return console.log(err)
-		    		const oldFilePath = './'+answers.job_number.toUpperCase()+'/BXXXXXX_XXX_DetailList_W.xls';
-	    	        const newFilePath= './'+answers.job_number.toUpperCase()+'/'+answers.job_number.toUpperCase()+'_DetailList_W.xls'; 
+	    	        const oldFilePath = './'+answers.job_number.toUpperCase()+'\ 做稿/BXXXXXX_XXX_DetailList_W.xls';
+	    	        const newFilePath= './'+answers.job_number.toUpperCase()+'\ 做稿/'+answers.job_number.toUpperCase()+'_DetailList_W.xls'; 
 	    	        rename(oldFilePath,newFilePath).then((data)=>{
-	    	        	const dirPath = './'+answers.job_number.toUpperCase()+'/3报价单或订单/'+getTime();
+	    	        	const dirPath = './'+answers.job_number.toUpperCase()+'\ 做稿/2\ raw\ client\ files/'+getTime();
 	    	            return mkdir(dirPath)
 	    	        })
 	    	        .catch(err=>{

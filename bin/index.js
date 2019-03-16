@@ -11,7 +11,7 @@ inquirer
         type: 'rawlist',
         name: 'type',
         message: `${chalk.magenta(' What\'s your new job type？Please choose one of the following:')}`,
-        choices: ['USA','CAN','Print','NON WMT'],
+        choices: ['USA','CAN','CAB','LNC','Print'],
         default: 'USA'
       }
    
@@ -25,12 +25,15 @@ inquirer
         case  'CAN':
             require('./can').run()
            break;
+        case  'CAB':
+            require('./cab').run()
+           break;
+        case  'LNC':
+            require('./lnc').run()
+           break;      
         case  'Print':
             require('./print').run()
            break;
-        case  'NON WMT':
-            require('./other').run()
-           break;   
      }
 
   });
