@@ -2,7 +2,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
-const {getTime,mkdir,rename}= require('./utils');
+const {getTime,mkdir,rename,open}= require('./utils');
 
 function check_job(job){
    var patt=/[B][12][890][0-9]{2}[0-9A-Z][0-9]_[A-Z]{3}/g;
@@ -32,6 +32,9 @@ module.exports={
 	    	        	const dirPath = './'+answers.job_number.toUpperCase()+'\ 做稿/2\ raw\ client\ files/'+getTime();
 	    	            return mkdir(dirPath)
 	    	        })
+	    	        .then(()=>{
+		    	        	open().then(()=>{})
+		    	        })
 	    	        .catch(err=>{
 	    	        	console.log(err)
 	    	        })

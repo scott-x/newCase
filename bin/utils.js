@@ -27,6 +27,11 @@ function getTime(){
 	return  mon +  day;
 }
 
+function open(){
+	const { exec_cmd } = require('slimz')
+    return exec_cmd('cd *做稿;open *.xls*',()=>{})
+}
+
 function mkdir(folder_path){
 	const promise = new Promise((resolve,reject)=>{
        fs.mkdir(folder_path,err=>{
@@ -51,5 +56,6 @@ function rename(old_path,new_Path){
 module.exports={
 	getTime,
 	mkdir,
-	rename
+	rename,
+	open
 };

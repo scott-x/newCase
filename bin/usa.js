@@ -2,7 +2,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
-const {getTime,mkdir,rename}= require('./utils');
+const {getTime,mkdir,rename,open}= require('./utils');
 
 
 function check_job(job){
@@ -35,8 +35,12 @@ module.exports={
 		    	        })
 		    	        .then((data)=>{
                             const another_path = './'+answers.job_number.toUpperCase()+'\ 做稿/1\ intake\ sheet\ \&\ order/'+getTime();
-                            mkdir(another_path)
-		    	        }).catch(err=>{
+                            return mkdir(another_path)
+		    	        })
+		    	        .then(()=>{
+		    	        	open().then(()=>{})
+		    	        })
+		    	        .catch(err=>{
 		    	        	console.log(err)
 		    	        })
 		    	    	console.log('   New Job '+answers.job_number.toUpperCase()+' was created successfully!')
