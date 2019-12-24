@@ -2,7 +2,8 @@ var fs = require('fs-extra');
 var path = require('path');
 var inquirer = require('inquirer');
 var chalk = require('chalk');
-const {getTime,mkdir,rename,open}= require('./utils');
+const { mkdir,rename,open}= require('./utils');
+const { getTimeString } = require('slimz')
 
 
 function check_job(job){
@@ -30,11 +31,11 @@ module.exports={
 		    	        const oldFilePath = './'+answers.job_number.toUpperCase()+'\ 做稿/U180XXX_XXX_DetailList_W.xls';
 		    	        const newFilePath= './'+answers.job_number.toUpperCase()+'\ 做稿/'+answers.job_number.toUpperCase()+'_DetailList_W.xls'; 
 		    	        rename(oldFilePath,newFilePath).then((data)=>{
-		    	        	const dirPath = './'+answers.job_number.toUpperCase()+'\ 做稿/2\ raw\ client\ files/'+getTime();
+		    	        	const dirPath = './'+answers.job_number.toUpperCase()+'\ 做稿/2\ raw\ client\ files/'+getTimeString();
 		    	            return mkdir(dirPath)
 		    	        })
 		    	        .then((data)=>{
-                            const another_path = './'+answers.job_number.toUpperCase()+'\ 做稿/1\ intake\ sheet\ \&\ order/'+getTime();
+                            const another_path = './'+answers.job_number.toUpperCase()+'\ 做稿/1\ intake\ sheet\ \&\ order/'+getTimeString();
                             return mkdir(another_path)
 		    	        })
 		    	        .then(()=>{

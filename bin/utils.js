@@ -24,7 +24,7 @@ function getTime(){
 	seconds = "0" + seconds;
     }
 
-	return  mon +  day;
+	return  mon.toString() +  day.toString();
 }
 
 function open(){
